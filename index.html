@@ -34,11 +34,10 @@
     }
     header h1{margin:0;font-size:1.6rem;letter-spacing:0.2px}
     header p{margin:8px 0 0;opacity:0.95}
-    /* Logo styling */
     .logo {
       display: block;
       margin: 10px auto;
-      max-width: 150px; /* Adjust size as needed */
+      max-width: 150px;
       height: auto;
     }
 
@@ -106,7 +105,12 @@
       gap:10px;
     }
     .gallery-grid img{
-      width:100%;height:110px;object-fit:cover;border-radius:8px;cursor:pointer;box-shadow:0 6px 18px rgba(2,6,23,0.06);
+      width:100%;
+      height:110px;
+      object-fit: cover;
+      border-radius:8px;
+      cursor:pointer;
+      box-shadow:0 6px 18px rgba(2,6,23,0.06);
       transition:transform .25s;
     }
     .gallery-grid img:hover{transform:scale(1.04)}
@@ -263,7 +267,7 @@
       <div class="center" style="flex-direction:column;">
         <p class="muted">QR कोड स्कैन करके पेमेंट करें।</p>
         <div style="margin-top:10px;max-width:200px;text-align:center;">
-          <img src="images/upi_qr.png" alt="UPI QR Code" style="width:100%;height:auto;border-radius:8px;box-shadow:0 4px 12px rgba(0,0,0,0.1);">
+          <img src="upi_qr.png" alt="UPI QR Code" style="width:100%;height:auto;border-radius:8px;box-shadow:0 4px 12px rgba(0,0,0,0.1);">
         </div>
       </div>
     </section>
@@ -311,14 +315,12 @@
   <script>
     /* Auto-generate gallery items for p1..p10 from images/ folder */
     (function(){
-      // यहां पर कुल फ़ोटो की संख्या डालें
       const total = 10;
-      const folder = 'images';
       const grid = document.getElementById('galleryGrid');
       
       for(let i=1;i<=total;i++){
         const img = document.createElement('img');
-        img.src = `${folder}/p${i}.png`;
+        img.src = `p${i}.png`; // यहाँ से 'images/' फ़ोल्डर हटा दिया गया है
         img.alt = `p${i}`;
         img.loading = 'lazy';
         img.className = 'gallery-thumb';
@@ -326,7 +328,6 @@
         grid.appendChild(img);
       }
 
-      // Lightbox functions (no changes here)
       const lb = document.getElementById('lightbox');
       const lbImg = document.getElementById('lightboxImg');
       const lbClose = document.getElementById('lbClose');
