@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>हांडे एंटरप्राईजेस - ई-सेवा केंद्र</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;700&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+  <style>
+    :root{
+      --primary:#0077b6;
+      --nav:#023e8a;
+      --accent:#00b4d8;
+      --whatsapp:#25D366;
+      --card-bg:#ffffff;
+      --page-bg:#f5f8fb;
+      --muted:#6b7280;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: 'Noto Sans Devanagari', sans-serif;
+      background:var(--page-bg);
+      color:#111827;
+      -webkit-font-smoothing:antialiased;
+    }
+
+    header{
+      background: linear-gradient(90deg,var(--primary),var(--accent));
+      color:#fff;
+      text-align:center;
+      padding:28px 18px;
+    }
+    header h1{margin:0;font-size:1.6rem;letter-spacing:0.2px}
+    header p{margin:8px 0 0;opacity:0.95}
+    /* Logo styling */
+    .logo {
+      display: block;
+      margin: 10px auto;
+      max-width: 150px; /* Adjust size as needed */
+      height: auto;
+    }
+
+    nav{
+      background:var(--nav);
+      display:flex;
+      gap:6px;
+      justify-content:center;
+      flex-wrap:wrap;
+      padding:6px;
+      position:sticky;
+      top:0;
+      z-index:40;
+    }
+    nav a{
+      color:#fff;
+      padding:10px 14px;
+      text-decoration:none;
+      font-weight:700;
+      border-radius:6px;
+    }
+    nav a:hover{background:#0b57a1}
+
+    main{max-width:1100px;margin:26px auto;padding:0 16px 60px;}
+
+    section{margin-bottom:28px; animation:fadeIn .45s ease}
+    h2{color:var(--nav);text-align:center;margin-bottom:14px}
+
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:14px;
+    }
+    .card{
+      background:var(--card-bg);
+      padding:16px;border-radius:10px;
+      box-shadow:0 6px 18px rgba(2,6,23,0.06);
+      text-align:center;
+    }
+
+    table{
+      width:100%;
+      border-collapse:collapse;
+      background:var(--card-bg);
+      border-radius:8px;
+      overflow:hidden;
+      box-shadow:0 6px 18px rgba(2,6,23,0.04);
+    }
+    th,td{
+      padding:12px;border-bottom:1px solid #eef4fb;text-align:left;font-size:0.95rem
+    }
+    th{background:var(--primary);color:#fff;font-weight:700}
+
+    .center{display:flex;justify-content:center;align-items:center;gap:8px;flex-wrap:wrap}
+
+    .btn{
+      display:inline-block;background:var(--primary);color:#fff;padding:10px 14px;border-radius:8px;text-decoration:none;font-weight:700;
+    }
+    .muted{color:var(--muted);font-size:0.95rem}
+
+    /* Gallery */
+    .gallery-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fill,minmax(150px,1fr));
+      gap:10px;
+    }
+    .gallery-grid img{
+      width:100%;height:110px;object-fit:cover;border-radius:8px;cursor:pointer;box-shadow:0 6px 18px rgba(2,6,23,0.06);
+      transition:transform .25s;
+    }
+    .gallery-grid img:hover{transform:scale(1.04)}
+
+    /* Lightbox */
+    .lightbox-wrap{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.88);z-index:1200;align-items:center;justify-content:center;padding:20px}
+    .lightbox-wrap.active{display:flex}
+    .lightbox-img{max-width:95%;max-height:92%;border-radius:8px;box-shadow:0 20px 40px rgba(0,0,0,0.6)}
+    .lightbox-close{position:fixed;top:18px;right:22px;color:#fff;font-size:30px;text-decoration:none;z-index:1300}
+
+    /* Contact / map */
+    .contact-card{background:var(--card-bg);padding:16px;border-radius:10px;box-shadow:0 6px 18px rgba(2,6,23,0.04)}
+    .map-responsive{position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:8px;margin-top:12px}
+    .map-responsive iframe{position:absolute;left:0;top:0;height:100%;width:100%;border:0}
+
+    /* floating whatsapp */
+    .whatsapp-float{
+      position:fixed;right:18px;bottom:18px;width:60px;height:60px;background:var(--whatsapp);border-radius:999px;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(37,211,102,0.18);z-index:1400;
+    }
+    .whatsapp-float a{color:#fff;font-size:26px;text-decoration:none}
+
+    footer{background:var(--primary);color:#fff;padding:14px;text-align:center;border-top-left-radius:6px;border-top-right-radius:6px;margin-top:18px}
+
+    @media (max-width:600px){
+      header h1{font-size:1.25rem}
+      .gallery-grid img{height:96px}
+      .card{padding:12px}
+    }
+
+    @keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="images/logo.png" alt="Haande Enterprises Logo" class="logo">
+    <h1>💥🖥🖱 हांडे एंटरप्राईजेस 🖥🖱💥</h1>
+    <div class="muted">झेरॉक्स, स्टेशनरी & ऑनलाईन सर्व्हिसेस — सर्व सरकारी व खाजगी ऑनलाइन सेवा</div>
+  </header>
+
+  <nav>
+    <a href="#home">मुख्य पान</a>
+    <a href="#services">सेवा</a>
+    <a href="#govt">शासकीय सुविधा</a>
+    <a href="#documents">आवश्यक कागदपत्रे</a>
+    <a href="#payment">पेमेंट</a>
+    <a href="#gallery">गॅलरी</a>
+    <a href="#contact">संपर्क</a>
+  </nav>
+
+  <main id="home">
+
+    <section id="intro">
+      <h2>आपले स्वागत आहे</h2>
+      <div class="card">
+        <p class="muted">हांडे एंटरप्राईजेस — पंचायत समितीच्या बाजूला, मंगरूळपिर रोड, मानोरा, जि. वाशिम</p>
+        <p style="margin-top:8px"><strong>प्रो. प्रा. योगेश हांडे</strong></p>
+        <p class="muted">इंटरनेट, प्रिंटिंग, झेरॉक्स, लॅमिनेशन, ऑनलाईन फॉर्म भरणे, आधार-पॅन सेवा, फूड लायसन्स, वीज बिल भरणे व बरेच काही — सर्व एकाच ठिकाणी।</p>
+      </div>
+    </section>
+
+    <section id="services">
+      <h2>आमच्या सेवा</h2>
+      <div class="grid">
+        <div class="card">💻 इंटरनेट ब्राउझिंग / कंप्यूटर सेवेस</div>
+        <div class="card">🖨 झेरॉक्स, प्रिंटिंग, स्कॅनिंग, लॅमिनेशन</div>
+        <div class="card">📄 कॉलेज व शालेय फॉर्म भरणे</div>
+        <div class="card">💼 व्यवसाय परवाना, फूड लायसन्स, जीएसटी नोंदणी</div>
+        <div class="card">🧾 आधार कार्ड / पॅन कार्ड सेवा</div>
+        <div class="card">🌾 शेतकरी सेवा (७/१२, पिक विमा, शेतकरी योजना)</div>
+      </div>
+    </section>
+
+    <section id="govt">
+      <h2>शासकीय सुविधा</h2>
+      <div class="grid">
+        <div class="card">🥗 फूड लायसन्स अर्ज व मदत</div>
+        <div class="card">⚡ वीज बिल भरणे व नवीन कनेक्शन अर्ज</div>
+        <div class="card">🏛 रोजगार योजना अर्ज / नोंदणी</div>
+        <div class="card">📝 जातीचा दाखला / रहिवासी दाखला</div>
+        <div class="card">🗳 मतदार नोंदणी व मदत</div>
+        <div class="card">💳 पॅन कार्ड अर्ज</div>
+      </div>
+    </section>
+
+    <section id="documents">
+      <h2>आवश्यक कागदपत्रे (Servicewise)</h2>
+
+      <table>
+        <tr>
+          <th>सेवा</th>
+          <th>आवश्यक कागदपत्रे</th>
+        </tr>
+
+        <tr>
+          <td>कॉलेज प्रवेश / शाळा फॉर्म</td>
+          <td>आधार कार्ड, मार्कशीट/शाळेचा दाखला, पासपोर्ट साईझ फोटो, पत्ता पुरावा (लागल्यास), जात दाखला (लागल्यास)</td>
+        </tr>
+
+        <tr>
+          <td>शिष्यवृत्ती अर्ज</td>
+          <td>आधार, वर्तणुकीचा दाखला/माहत्वाचा दस्तऐवज, बँक आकाउंट तपशील, पासपोर्ट फोटो</td>
+        </tr>
+
+        <tr>
+          <td>शेतकरी योजना / ७/१२ / पीक विमा</td>
+          <td>आधार कार्ड, जमिनीचा दस्तऐवज (७/१२), बँक पासबुक / खाती तपशील, जमीन मालकीची कागदपत्रे</td>
+        </tr>
+
+        <tr>
+          <td>व्यवसाय परवाना / दुकान परवाना</td>
+          <td>आधार कार्ड, पत्ता पुरावा (वॉटर / वीज बिल), दुकानाचा फोटो, व्यवसायाचे तपशील / स्थापन कागद</td>
+        </tr>
+
+        <tr>
+          <td>फूड लायसन्स</td>
+          <td>आधार कार्ड, दुकानाचा पत्ता व फोटो, व्यवसायाचा पत्ता पुरावा, पासपोर्ट साईझ फोटो, जरूरी असल्यास मेन्यू व HACCP कागद (स्थानिक नियमावर अवलंबून)</td>
+        </tr>
+
+        <tr>
+          <td>आधार कार्ड नवीन / अपडेट / दुरुस्ती</td>
+          <td>जुना आधार (जर आहे), आधार सुधारण्यासाठी आवश्यक पुरावे — जन्मतारीख/पत्ता/ओळख पुरावे (आधार एजन्सीकडून तपासावी)</td>
+        </tr>
+
+        <tr>
+          <td>पॅन कार्ड अर्ज</td>
+          <td>आधार कार्ड (KYC), पासपोर्ट साईझ फोटो, सही (digital/physical) आणि बँक तपशील (लागल्यास)</td>
+        </tr>
+
+        <tr>
+          <td>वीज कनेक्शन / वीज बिल भरणे</td>
+          <td>ग्राहक क्रमांक / कस्टमर आयडी / बिलची माहिती, ओळख व पत्ता पुरावा</td>
+        </tr>
+
+        <tr>
+          <td>रोजगार नोंदणी / योजना अर्ज</td>
+          <td>आधार कार्ड, शैक्षणिक प्रमाणपत्रे (जर लागतील), पासपोर्ट फोटो, पत्ता पुरावा</td>
+        </tr>
+
+        <tr>
+          <td>मतदार नोंदणी</td>
+          <td>आधार कार्ड, पत्ता पुरावा, वयोगट दाखवणारा पुरावा (लागेल तर)</td>
+        </tr>
+
+        <tr>
+          <td>इतर सामान्य सेवा (प्रिंट/स्कॅन/लॅमिनेशन)</td>
+          <td>कोणतेही विशिष्ट दस्तऐवज आवश्यक नाही; मूळ कागद/फाईल देऊन सेवा घ्या</td>
+        </tr>
+      </table>
+    </section>
+
+    <section id="payment">
+      <h2>ऑनलाईन पेमेंट</h2>
+      <div class="center" style="flex-direction:column;">
+        <p class="muted">QR कोड स्कैन करके पेमेंट करें।</p>
+        <div style="margin-top:10px;max-width:200px;text-align:center;">
+          <img src="images/upi_qr.png" alt="UPI QR Code" style="width:100%;height:auto;border-radius:8px;box-shadow:0 4px 12px rgba(0,0,0,0.1);">
+        </div>
+      </div>
+    </section>
+
+    <section id="gallery">
+      <h2>📸 गॅलरी</h2>
+      <div class="gallery-grid" id="galleryGrid" aria-live="polite"></div>
+
+      <div id="lightbox" class="lightbox-wrap" role="dialog" aria-hidden="true">
+        <a href="#" class="lightbox-close" id="lbClose" title="Close" aria-label="Close">×</a>
+        <img src="" alt="Preview" class="lightbox-img" id="lightboxImg">
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>🛑 संपर्क</h2>
+      <div class="contact-card">
+        <p><strong>💥🖥🖱 हांडे एंटरप्राईजेस</strong> — झेरॉक्स, स्टेशनरी & ऑनलाईन सर्व्हिसेस</p>
+        <p><strong>पत्ता:</strong> पंचायत समितीच्या बाजूला, मंगरूळपिर रोड, मानोरा, जि. वाशिम</p>
+        <p><strong>प्रो. प्रा. :</strong> योगेश हांडे</strong></p>
+        <p><strong>फोन:</strong> <a href="tel:+918888369545">+91 88883 69545</a></p>
+        <p><strong>WhatsApp:</strong> <a href="https://wa.me/918888369545" target="_blank" rel="noopener">+91 88883 69545</a></p>
+        <p class="muted">नकाश्यात आपल्या स्थानासाठी खालील नकाशा पाहा — (zoom / open in maps उपलब्ध)</p>
+
+        <div class="map-responsive">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3743.959594827202!2d77.5508!3d20.219!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd1151a583a3045%3A0x127f62013781f923!2sHANDE%20ENTERPRISE!5e0!3m2!1sen!2sin!4v1754639972944!5m2!1sen!2sin"
+            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    © 2025 हांडे एंटरप्राईजेस | सर्व हक्क राखीव
+  </footer>
+
+  <div class="whatsapp-float" aria-hidden="false">
+    <a href="https://wa.me/918888369545" target="_blank" rel="noopener" aria-label="WhatsApp">
+      <i class="fab fa-whatsapp"></i>
+    </a>
+  </div>
+
+  <script>
+    /* Auto-generate gallery items for p1..p10 from images/ folder */
+    (function(){
+      // यहां पर कुल फ़ोटो की संख्या डालें
+      const total = 10;
+      const folder = 'images';
+      const grid = document.getElementById('galleryGrid');
+      
+      for(let i=1;i<=total;i++){
+        const img = document.createElement('img');
+        img.src = `${folder}/p${i}.png`;
+        img.alt = `p${i}`;
+        img.loading = 'lazy';
+        img.className = 'gallery-thumb';
+        img.addEventListener('click', ()=> openLightbox(img.src));
+        grid.appendChild(img);
+      }
+
+      // Lightbox functions (no changes here)
+      const lb = document.getElementById('lightbox');
+      const lbImg = document.getElementById('lightboxImg');
+      const lbClose = document.getElementById('lbClose');
+
+      function openLightbox(src){
+        lbImg.src = src;
+        lb.classList.add('active');
+        lb.setAttribute('aria-hidden','false');
+        document.body.style.overflow = 'hidden';
+      }
+      function closeLightbox(){
+        lb.classList.remove('active');
+        lb.setAttribute('aria-hidden','true');
+        lbImg.src = '';
+        document.body.style.overflow = '';
+      }
+      lbClose.addEventListener('click', (e)=>{ e.preventDefault(); closeLightbox(); });
+      lb.addEventListener('click',(e)=>{
+        if(e.target === lb) closeLightbox();
+      });
+      document.addEventListener('keydown',(e)=>{ if(e.key==='Escape') closeLightbox(); });
+    })();
+  </script>
+
+</body>
+</html>
